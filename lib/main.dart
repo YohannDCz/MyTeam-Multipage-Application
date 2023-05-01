@@ -1,28 +1,84 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+class Fonts {
+  final TextStyle h1Large = const TextStyle(
+    fontSize: 100,
+    height: 100,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle h1Small = const TextStyle(
+    fontSize: 64,
+    height: 56,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle h2 = const TextStyle(
+    fontSize: 48,
+    height: 48,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle h3 = const TextStyle(
+    fontSize: 18,
+    height: 28,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle body1 = const TextStyle(
+    fontSize: 18,
+    height: 28,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.w600,
+  );
+
+  final TextStyle body2 = const TextStyle(
+    fontSize: 15,
+    height: 25,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.w600,
+  );
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  // Define a color swatch using MaterialColor
+  final MaterialColor myColorSwatch = const MaterialColor(
+    0xFF014E56,
+    <int, Color>{
+      50: Color(0xFF79C8C7),
+      100: Color(0xFF2C6269),
+      200: Color(0xFF004047),
+      300: Color(0xFF012F34),
+      400: Color(0xFF002529),
+      500: Color(0xFF002529),
+      600: Color(0xFF002529),
+      700: Color(0xFF002529),
+      800: Color(0xFF002529),
+      900: Color(0xFF002529),
+    },
+  );
+  final Color primary1 = const Color(0xFF014E56);
+  final Color primary2 = const Color(0xFFF67E7E);
+  final Color primary3 = Colors.white;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'My Team Multiple Page Website',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: myColorSwatch,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -32,15 +88,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -48,33 +95,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+  Fonts font = Fonts();
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Placeholder()),
+                );
+              },
+              child: SvgPicture.asset(
+                'assets/logos/logo.svg',
+                height: 32,
+                width: 128, // adjust the logo size as needed
+                semanticsLabel: 'My App Logo', // optional - provide a description for accessibility
+              ),
+            ),
+          ),
+          centerTitle: false,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.menu),
+              iconSize: 36.0,
+              padding: EdgeInsets.only(right: 24.0),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Placeholder()),
+                );
+              },
+            ),
+          ]),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -94,22 +150,14 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
+          children: const <Widget>[
+            Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text("Yop"),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
