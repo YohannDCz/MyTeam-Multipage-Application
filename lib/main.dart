@@ -96,10 +96,54 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Fonts font = Fonts();
+
+  final TextStyle h1Large = const TextStyle(
+    fontSize: 100,
+    height: 100,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle h1Small = const TextStyle(
+    fontSize: 64,
+    height: 56,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle h2 = const TextStyle(
+    fontSize: 48,
+    height: 48,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle h3 = const TextStyle(
+    fontSize: 18,
+    height: 28,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle body1 = const TextStyle(
+    fontSize: 18,
+    height: 28,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.w600,
+  );
+
+  final TextStyle body2 = const TextStyle(
+    fontSize: 15,
+    height: 25,
+    fontFamily: 'Livvic',
+    fontWeight: FontWeight.w600,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
           title: Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: GestureDetector(
@@ -122,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
             IconButton(
               icon: const Icon(Icons.menu),
               iconSize: 36.0,
-              padding: EdgeInsets.only(right: 24.0),
+              padding: const EdgeInsets.only(right: 24.0),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -131,33 +175,129 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ]),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+      body: ListView(
+        children: const [
+          Screen1(),
+          Screen2(),
+        ],
+      ),
+    );
+  }
+}
+
+class Screen2 extends StatelessWidget {
+  const Screen2({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 1072.0,
+          color: Color(0xFF012F34),
+        ),
+        Positioned(
+          top: 64.0,
+          left: 24.0,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            children: [
+            Container(
+              width: 50.0,
+              height: 4.0,
+              color: Color(0xFFF67E7E),
             ),
-            Text("Yop"),
+            const Text(
+              "Build & \n manage \n distributed \n teams like no \n one else.",
+              style: TextStyle(
+                fontFamily: "Livvic",
+                fontSize: 32.0,
+                height: 1,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ))
+          ],),
+        )
+      ]
+    );
+  }
+}
+
+class Screen1 extends StatelessWidget {
+  const Screen1({
+    super.key,
+  });
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [ Container(
+        width: double.infinity,
+        height: 567.0,
+        decoration: const BoxDecoration(
+          color: Color(0xFF014E56),
+        ),
+        ),
+        Column(
+          children: <Widget>[
+            const SizedBox(height: 80.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 88.0),
+              child: RichText(
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.fade,
+                text: const TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Find the best ',
+                      style: TextStyle(
+                        fontSize: 40.0,
+                        height: 1,
+                        fontFamily: 'Livvic',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'talent',
+                      style: TextStyle(
+                        fontSize: 40.0,
+                        height: 1,
+                        fontFamily: 'Livvic',
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFF67E7E),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 18.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 40.0),
+              child: Text(
+                "Finding the right people and building high performing teams can be hard. Most companies aren’t tapping into the abundance of global talent. We’re about to change that.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                   fontSize: 15.0,
+                    height: 1.87,
+                    fontFamily: 'Livvic',
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                ),
+              ),
+            )
           ],
         ),
-      ),
+        Positioned(
+          bottom: 0.0,
+          child: SvgPicture.asset('assets/background/bg-pattern-home-2.svg'),
+        ),
+      ]
     );
   }
 }
