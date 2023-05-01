@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
-class Screen1 extends StatelessWidget {
-  const Screen1({
+class Jumbotron extends StatelessWidget {
+  const Jumbotron({
     super.key,
   });
 

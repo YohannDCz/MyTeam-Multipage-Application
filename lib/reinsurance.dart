@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
-class Screen2 extends StatelessWidget {
-  const Screen2({
+class Reinsurance extends StatelessWidget {
+  const Reinsurance({
     super.key,
   });
 

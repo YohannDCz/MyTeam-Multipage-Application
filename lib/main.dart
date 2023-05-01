@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:myteam_multiplepage_website/screen1.dart';
-import 'package:myteam_multiplepage_website/screen2.dart';
+import 'package:myteam_multiplepage_website/jumbtron.dart';
+import 'package:myteam_multiplepage_website/reinsurance.dart';
+import 'package:myteam_multiplepage_website/testimonial.dart';
+import 'package:myteam_multiplepage_website/contactus.dart';
+import 'package:myteam_multiplepage_website/footer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -136,10 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ]),
       body: ListView(
-        children: const [
-          Screen1(),
-          Screen2(),
-        ],
+        children: const [Jumbotron(), Reinsurance(), Testimonial(), Contactus(), Footer1()],
       ),
     );
   }
