@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:myteam_multiplepage_website/about/about.dart';
+import 'package:myteam_multiplepage_website/home/home.dart';
 
 
 class Footer1 extends StatelessWidget {
+  final String key1;
+
   const Footer1({
+    required this.key1,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return Stack(key: UniqueKey(), children: [
       Container(width: double.infinity, height: 432.0, decoration: const BoxDecoration(color: Colors.black)),
       Positioned(
         top: 66.0,
@@ -20,13 +25,13 @@ class Footer1 extends StatelessWidget {
             "assets/logos/logo.svg",
             width: 96.0,
           ),
-          const SizedBox(height: 24.0),
+          const SizedBox(height: 24),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            InkWell(
+            GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Placeholder()),
+                  MaterialPageRoute(builder: (context) => const MyHomePage()),
                 );
               },
               child: const Text(
@@ -37,15 +42,16 @@ class Footer1 extends StatelessWidget {
                   fontFamily: 'Livvic',
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
             const SizedBox(width: 24.0),
-            InkWell(
+            GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Placeholder()),
+                  MaterialPageRoute(builder: (context) => const About()),
                 );
               },
               child: const Text(
@@ -56,6 +62,7 @@ class Footer1 extends StatelessWidget {
                   fontFamily: 'Livvic',
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
@@ -70,6 +77,7 @@ class Footer1 extends StatelessWidget {
               fontFamily: 'Livvic',
               fontWeight: FontWeight.w600,
               color: Color(0x3cFFFFFF),
+              decoration: TextDecoration.none,
             ),
           ),
           const SizedBox(height: 40.0),
@@ -93,6 +101,7 @@ class Footer1 extends StatelessWidget {
                   fontFamily: 'Livvic',
                   fontWeight: FontWeight.w600,
                   color: Color(0x3cFFFFFF),
+                  decoration: TextDecoration.none,
                 ),
               )
             ],

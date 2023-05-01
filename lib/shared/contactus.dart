@@ -24,9 +24,11 @@ class Contactus extends StatelessWidget {
               height: 1,
               fontFamily: 'Livvic',
               fontWeight: FontWeight.bold,
+              color: Colors.black,
+              decoration: TextDecoration.none,
             ),
           ),
-          SizedBox(height: 24.0),
+          const SizedBox(height: 24.0),
           Container(
               width: 153.0,
               height: 48.0,
@@ -45,6 +47,8 @@ class Contactus extends StatelessWidget {
                         height: 1.56,
                         fontFamily: 'Livvic',
                         fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
                       )),
                 ),
               ))
