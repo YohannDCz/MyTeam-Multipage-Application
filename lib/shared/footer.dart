@@ -5,10 +5,8 @@ import 'package:myteam_multiplepage_website/home/home.dart';
 
 
 class Footer1 extends StatelessWidget {
-  final String key1;
 
   const Footer1({
-    required this.key1,
     super.key,
   });
 
@@ -31,7 +29,7 @@ class Footer1 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                  MaterialPageRoute(builder: (context) => const Home()),
                 );
               },
               child: const Text(
