@@ -52,6 +52,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  fonts:
+    - family: Livvic
+      fonts:
+        - asset: assets/fonts/Livvic-Medium.ttf
+        - asset: assets/fonts/Livvic-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Livvic-Bold.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -65,7 +72,6 @@ flutter:
     - assets/icons/
     - assets/logos/
     - assets/favicon-32x32.png
-    - assets/Livvic/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
