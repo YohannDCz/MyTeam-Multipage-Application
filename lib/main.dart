@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: myColorSwatch,
       ),
-      home: const Contact(),
+      home: const Home(),
     );
   }
 }
@@ -86,55 +86,4 @@ class Fonts {
     fontFamily: 'Livvic',
     fontWeight: FontWeight.w600,
   );
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  Fonts font = Fonts();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          elevation: 0.0,
-          title: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Placeholder()),
-                );
-              },
-              child: SvgPicture.asset(
-                'assets/logos/logo.svg',
-                height: 32,
-                width: 128, // adjust the logo size as needed
-                semanticsLabel: 'My App Logo', // optional - provide a description for accessibility
-              ),
-            ),
-          ),
-          centerTitle: false,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.menu),
-              iconSize: 36.0,
-              padding: const EdgeInsets.only(right: 24.0),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Placeholder()),
-                );
-              },
-            ),
-          ]),
-      body: Home(),
-    );
-  }
 }

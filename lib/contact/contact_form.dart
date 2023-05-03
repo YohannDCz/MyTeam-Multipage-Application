@@ -113,7 +113,7 @@ class ContactForm extends StatelessWidget {
                       ])),
                 ),
               ]),
-              MyCustomForm(),
+              const MyCustomForm(),
             ]),
           )),
       Positioned(bottom: -100.0, right: -100.0, child: SvgPicture.asset("assets/background/bg-pattern-contact-2.svg")),
@@ -151,20 +151,26 @@ class MyCustomFormState extends State<MyCustomForm> {
         height: 538.0,
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12.0),
+            SizedBox(
+              height: 75.0,
               child: TextFormField(
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                  labelText: 'Name',
-                  labelStyle: TextStyle(fontSize: 15.0, fontFamily: "Livvic", fontWeight: FontWeight.w600, height: 1.67, color: Color(0x3CFFFFFF)),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 1.0,
+                    contentPadding: EdgeInsets.only(bottom: 4.0),
+                    labelText: 'Name',
+                    labelStyle: TextStyle(fontSize: 15.0, fontFamily: "Livvic", fontWeight: FontWeight.w600, height: 1.67, color: Color(0x3CFFFFFF)),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
                     ),
-                  ),
-                  
-                ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
+                    )),
                 // The validator receives the text that the user has entered.
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -174,17 +180,25 @@ class MyCustomFormState extends State<MyCustomForm> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12.0),
+            SizedBox(
+              height: 75.0,
               child: TextFormField(
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(bottom: 4.0),
                     labelText: 'Email Adress',
                     labelStyle: TextStyle(fontSize: 15.0, fontFamily: "Livvic", fontWeight: FontWeight.w600, height: 1.67, color: Color(0x3CFFFFFF)),
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                       color: Colors.white,
                       width: 1.0,
-                    ))),
+                    )),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
+                    )),
                 // The validator receives the text that the user has entered.
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -194,17 +208,25 @@ class MyCustomFormState extends State<MyCustomForm> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12.0),
+            SizedBox(
+              height: 75.0,
               child: TextFormField(
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(bottom: 4.0),
                     labelText: 'Company Name',
                     labelStyle: TextStyle(fontSize: 15.0, fontFamily: "Livvic", fontWeight: FontWeight.w600, height: 1.67, color: Color(0x3CFFFFFF)),
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                       color: Colors.white,
                       width: 1.0,
-                    ))),
+                    )),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
+                    )),
                 // The validator receives the text that the user has entered.
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -214,17 +236,25 @@ class MyCustomFormState extends State<MyCustomForm> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12.0),
+            SizedBox(
+              height: 75.0,
               child: TextFormField(
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(bottom: 4.0),
                     labelText: 'Title',
                     labelStyle: TextStyle(fontSize: 15.0, fontFamily: "Livvic", fontWeight: FontWeight.w600, height: 1.67, color: Color(0x3CFFFFFF)),
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                       color: Colors.white,
                       width: 1.0,
-                    ))),
+                    )),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
+                    )),
                 // The validator receives the text that the user has entered.
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -234,10 +264,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 24.0),
+            SizedBox(
+              height: 75.0,
               child: TextFormField(
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(bottom: 50.0),
                     labelText: 'Message',
                     labelStyle: TextStyle(fontSize: 15.0, fontFamily: "Livvic", fontWeight: FontWeight.w600, height: 1.67, color: Color(0x3CFFFFFF)),
                     enabledBorder: UnderlineInputBorder(
@@ -245,9 +277,14 @@ class MyCustomFormState extends State<MyCustomForm> {
                       color: Colors.white,
                       width: 1.0,
                     )),
-                  ),
-                minLines: 4,
-                maxLines: 5,
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 1.0,
+                      ),
+                    )),
+                minLines: 6,
+                maxLines: 10,
                 // The validator receives the text that the user has entered.
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -257,12 +294,13 @@ class MyCustomFormState extends State<MyCustomForm> {
                 },
               ),
             ),
+            const SizedBox(height: 24.0),
             Align(
               alignment: Alignment.bottomLeft,
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                  fixedSize: MaterialStateProperty.all(Size(123, 48)),
+                  fixedSize: MaterialStateProperty.all(const Size(123, 48)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(999.0),
