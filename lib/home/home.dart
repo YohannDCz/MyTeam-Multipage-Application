@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:myteam_multiplepage_website/about/about.dart';
+import 'package:myteam_multiplepage_website/contact/contact.dart';
 
 import 'package:myteam_multiplepage_website/home/jumbtron.dart';
 import 'package:myteam_multiplepage_website/home/reinsurance.dart';
@@ -7,9 +9,6 @@ import 'package:myteam_multiplepage_website/home/testimonial.dart';
 
 import 'package:myteam_multiplepage_website/shared/contactus.dart';
 import 'package:myteam_multiplepage_website/shared/footer.dart';
-
-
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -18,7 +17,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,13 +42,98 @@ class _HomeState extends State<Home> {
         centerTitle: false,
       ),
       endDrawer: Drawer(
-        width: 255.0,
-  
-      ),
+          width: 255.0,
+          backgroundColor: const Color(0xFF2C6269),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 32.0),
+            child: ListView(children: [
+              ListTile(
+                title: Padding(
+                  padding: const EdgeInsets.only(top: 32.0, bottom: 12.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Home()),
+                      );
+                    },
+                    child: const Text(
+                      "home",
+                      style: TextStyle(
+                        fontFamily: "Livvic",
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w600,
+                        height: 1.56,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Padding(
+                  padding: const EdgeInsets.only(bottom: 36.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const About()),
+                      );
+                    },
+                    child: const Text(
+                      "about",
+                      style: TextStyle(
+                        fontFamily: "Livvic",
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w600,
+                        height: 1.56,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Container(
+                  width: 159.0,
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2.0,
+                    ), 
+                    borderRadius: BorderRadius.circular(999.0)
+                  ),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 4.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Contact()),
+                          );
+                        },
+                        child: const Text(
+                          "contact us",
+                          style: TextStyle(
+                            fontFamily: "Livvic",
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w600,
+                            height: 1.56,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ]),
+          )),
       body: ListView(
         children: const [Jumbotron(), Reinsurance(), Testimonial(), Contactus(), Footer1()],
       ),
     );
   }
 }
-
